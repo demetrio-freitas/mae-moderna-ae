@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAE - Comparativo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Raleway:wght@200;300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #d5d2cd; font-family: 'Inter', sans-serif; padding: 50px 40px; }
+    h1 { text-align: center; color: #0a1525; font-weight: 300; font-size: 13px; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 50px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1000px; margin: 0 auto; }
+    .option { text-align: center; }
+    .option h2 { color: #555; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 400; margin-bottom: 10px; }
+    .logo-card { background: #e8e6e3; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 30px rgba(0,0,0,0.1); }
+    .logo-card svg { display: block; width: 100%; height: auto; }
+    .fonts-info { margin-top: 8px; font-size: 10px; color: #777; letter-spacing: 1px; }
+  </style>
+</head>
+<body>
+
+  <h1>MAE &mdash; Tenor Sans &mdash; espacamento</h1>
+
+  <div class="grid">
+
+    <div class="option">
+      <h2>1 &mdash; Letras espacadas (18px)</h2>
+      <div class="logo-card">
+        <svg viewBox="0 0 500 220">
+          <rect width="500" height="220" fill="#e8e6e3"/>
+          <text x="250" y="110" text-anchor="middle" font-family="'Tenor Sans', sans-serif" font-size="90" fill="#0a1525" letter-spacing="18">MAE</text>
+          <line x1="155" y1="130" x2="345" y2="130" stroke="#a9754d" stroke-width="1.8"/>
+          <text x="250" y="158" text-anchor="middle" font-family="'Raleway', sans-serif" font-weight="300" font-size="10" fill="#0a1525" letter-spacing="4.5" opacity="0.65">MODERNA ARQUITETURA E ENGENHARIA</text>
+        </svg>
+      </div>
+      <div class="fonts-info">Tenor Sans 90px | letter-spacing: 18px</div>
+    </div>
+
+    <div class="option">
+      <h2>2 &mdash; Letras proximas (4px)</h2>
+      <div class="logo-card">
+        <svg viewBox="0 0 500 220">
+          <rect width="500" height="220" fill="#e8e6e3"/>
+          <text x="250" y="110" text-anchor="middle" font-family="'Tenor Sans', sans-serif" font-size="90" fill="#0a1525" letter-spacing="4">MAE</text>
+          <line x1="155" y1="130" x2="345" y2="130" stroke="#a9754d" stroke-width="1.8"/>
+          <text x="250" y="158" text-anchor="middle" font-family="'Raleway', sans-serif" font-weight="300" font-size="10" fill="#0a1525" letter-spacing="4.5" opacity="0.65">MODERNA ARQUITETURA E ENGENHARIA</text>
+        </svg>
+      </div>
+      <div class="fonts-info">Tenor Sans 90px | letter-spacing: 4px</div>
+    </div>
+
+  </div>
+
+</body>
+</html>

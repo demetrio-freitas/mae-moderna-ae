@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAE — Manual da Marca</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Raleway:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #f5f4f2;
+      font-family: 'Raleway', 'Helvetica Neue', sans-serif;
+      color: #0a1525;
+    }
+
+    /* COVER */
+    .cover {
+      background: #0a1525;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px;
+    }
+    .cover svg { max-width: 500px; width: 100%; }
+    .cover-subtitle {
+      color: #a9754d;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      margin-top: 60px;
+    }
+    .cover-year {
+      color: #d9d9d9;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 200;
+      font-size: 12px;
+      letter-spacing: 4px;
+      margin-top: 12px;
+      opacity: 0.5;
+    }
+
+    /* SECTIONS */
+    .section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 100px 40px;
+    }
+    .section-dark {
+      background: #0a1525;
+      color: #d9d9d9;
+      max-width: 100%;
+      padding: 100px 40px;
+    }
+    .section-dark .inner { max-width: 1000px; margin: 0 auto; }
+    .section-gray {
+      background: #e8e6e3;
+      max-width: 100%;
+      padding: 100px 40px;
+    }
+    .section-gray .inner { max-width: 1000px; margin: 0 auto; }
+    .section-terra {
+      background: #a9754d;
+      color: #fff;
+      max-width: 100%;
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .section-number {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 14px;
+      color: #a9754d;
+      letter-spacing: 4px;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 36px;
+      color: #0a1525;
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+    }
+    .section-dark .section-title { color: #e8e6e3; }
+    .section-gray .section-title { color: #0a1525; }
+    .section-line {
+      width: 60px;
+      height: 2px;
+      background: #a9754d;
+      margin-bottom: 40px;
+    }
+    .section-text {
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.8;
+      max-width: 600px;
+      opacity: 0.8;
+    }
+
+    /* LOGO DISPLAY */
+    .logo-display {
+      background: #e8e6e3;
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 40px 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .logo-display svg { display: block; width: 100%; height: auto; }
+
+    .logo-display-dark {
+      background: #0a1525;
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 40px 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .logo-display-dark svg { display: block; width: 100%; height: auto; }
+
+    /* GRID */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 40px 0; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin: 40px 0; }
+    .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 24px; margin: 40px 0; }
+
+    /* COLOR SWATCHES */
+    .swatch {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+    .swatch-color { height: 140px; }
+    .swatch-info {
+      background: #fff;
+      padding: 18px;
+    }
+    .swatch-name {
+      font-weight: 500;
+      font-size: 14px;
+      margin-bottom: 6px;
+      letter-spacing: 1px;
+    }
+    .swatch-hex {
+      font-family: monospace;
+      font-size: 13px;
+      color: #777;
+    }
+    .swatch-rgb {
+      font-size: 11px;
+      color: #999;
+      margin-top: 2px;
+    }
+
+    /* SPACING DIAGRAM */
+    .spacing-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 40px;
+      margin: 40px 0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    /* TYPOGRAPHY */
+    .type-sample {
+      background: #fff;
+      border-radius: 12px;
+      padding: 40px;
+      margin: 20px 0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+    .type-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #a9754d;
+      margin-bottom: 12px;
+    }
+    .type-name {
+      font-size: 28px;
+      margin-bottom: 4px;
+    }
+    .type-meta {
+      font-size: 12px;
+      color: #999;
+      margin-bottom: 16px;
+    }
+    .type-alphabet {
+      font-size: 18px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* DONT */
+    .dont-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+    .dont-card svg { display: block; width: 100%; height: auto; }
+    .dont-label {
+      padding: 14px 18px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #c0392b;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-top: 3px solid #c0392b;
+    }
+
+    /* WARNING BOX */
+    .warning-box {
+      background: #a9754d;
+      color: #fff;
+      border-radius: 12px;
+      padding: 30px 36px;
+      margin: 40px 0;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 1.7;
+      letter-spacing: 0.5px;
+    }
+    .warning-box strong {
+      display: block;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    /* AREA DE PROTECAO */
+    .protection-note {
+      font-size: 12px;
+      color: #999;
+      margin-top: 12px;
+      font-style: italic;
+    }
+
+    /* PAGE BREAK */
+    .page-break {
+      height: 1px;
+      background: #ddd;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    @media print {
+      .section, .section-dark, .section-gray { page-break-after: always; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== CAPA ==================== -->
+  <div class="cover">
+    <svg viewBox="0 0 500 180">
+      <text x="250" y="90" text-anchor="middle" font-family="'Tenor Sans', sans-serif" font-size="90" fill="#e8e6e3" letter-spacing="18">MAE</text>
+      <line x1="155" y1="110" x2="345" y2="110" stroke="#a9754d" stroke-width="1.8"/>
+      <text x="250" y="140" text-anchor="middle" font-family="'Raleway', sans-serif" font-weight="300" font-size="10" fill="#d9d9d9" letter-spacing="4.5" opacity="0.65">MODERNA ARQUITETURA E ENGENHARIA</text>
+    </svg>
+    <div class="cover-subtitle">Manual da Marca</div>
+    <div class="cover-year">2026</div>
+  </div>
+
+  <!-- ==================== 01 — A MARCA ==================== -->
+  <div class="section">
+    <div class="section-number">01</div>
+    <div class="section-title">A Marca</div>
+    <div class="section-line"></div>
+    <p class="section-text">
+      A MAE — Moderna Arquitetura e Engenharia — transmite solidez, modernidade e sofisticacao.
+      A identidade visual foi construida com precisao tipografica, onde cada detalhe de espacamento
+      e proporcao foi cuidadosamente definido e deve ser rigorosamente mantido em todas as aplicacoes.
+    </p>
+
+    <div class="logo-display">
+      <svg viewBox="0 0 900 340">
+        <rect width="900" height="340" fill="#e8e6e3"/>
+        <text x="450" y="165" text-anchor="middle" font-family="'Tenor Sans', sans-serif" font-size="90" fill="#0a1525" letter-spacing="18">MAE</text>
+        <line x1="355" y1="185" x2="545" y2="185" stroke="#a9754d" stroke-width="2"/>
+        <text x="450" y="217" text-anchor="middle" font-family="'Raleway', sans-serif" font-weight="300" font-size="12" fill="#0a1525" letter-spacing="5" opacity="0.65">MODERNA ARQUITETURA E ENGENHARIA</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ==================== 02 — VERSOES ==================== -->
+  <div class="section-gray">
+    <div class="inner">
+      <div class="section-number">02</div>
+      <div class="section-title">Versoes da Marca</div>
+      <div class="section-line"></div>
+      <p class="section-text">
+        A marca possui duas versoes oficiais: fundo claro e fundo escuro.
+        Ambas devem respeitar as mesmas proporcoes e espacamentos.
+      </p>
+
+      <div class="grid-2">
+        <!-- Versao clara -->
+        <div>
+          <div class="logo-display" style="margin-top:24px;">
+            <svg viewBox="0 0 500 220">
+              <rect width="500" height="220" fill="#e8e6e3"/>
+              <text x="250" y="105" text-anchor="middle" font-family="'Tenor Sans', sans-serif" font-size="72" fill="#0a1525" letter-spacing="14">MAE</text>
+              <line x1="165" y1="122" x2="335" y2="122" stroke="#a9754d" stroke-width="1.5"/>
+              <text x="250" y="148" text-anchor="middle" font-family="'Raleway', sans-serif" font-weight="300" font-size="9" fill="#0a1525" letter-spacing="4" opacity="0.65">MODERNA ARQUITETURA E ENGENHARIA</text>
+            </svg>
+          </div>
+          <p style="font-size:12px; color:#777; text-align:center; margin-top:8px;">Versao principal — fundo claro</p>
+        </div>
+        <!-- Versao escura -->
+        <div>
+          <div class="logo-display-dark" style="margin-top:24px;">
+            <svg viewBox="0 0 500 220">
+              <rect width="500" height="220" fill="#0a1525"/>
+              <text x="250" y="105" text-anchor="middle" font-family="'Tenor Sans', sans-serif" font-size="72" fill="#e8e6e3" letter-spacing="14">MAE</text>
+              <line x1="165" y1="122" x2="335" y2="122" stroke="#a9754d" stroke-width="1.5"/>
+              <text x="250" y="148" text-anchor="middle" font-family="'Raleway', sans-serif" font-weight="300" font-size="9" fill="#d9d9d9" letter-spacing="4" opacity="0.65">MODERNA ARQUITETURA E ENGENHARIA</text>
+            </svg>
+          </div>
+          <p style="font-size:12px; color:#777; text-align:center; margin-top:8px;">Versao secundaria — fundo escuro</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 03 — ESPACAMENTO ==================== -->
+  <div class="section">
+    <div class="section-number">03</div>
+    <div class="section-title">Espacamento</div>
+    <div class="section-line"></div>
+
+    <div class="warning-box">
+      <strong>Regra obrigatoria</strong>
+      O espacamento entre as letras M, A e E e parte fundamental da identidade da marca.
+      O valor de <strong style="display:inline; font-size:inherit; letter-spacing:0; text-transform:none;">letter-spacing: 18px</strong> (em fonte 90px) deve ser
+      rigorosamente mantido em todas as aplicacoes, sem excecao. A proporcionalidade deve ser
+      preservada em qualquer escala. Alterar o espacamento descaracteriza a marca.
+    </div>
+
+    <div class="spacing-card">
+      <svg viewBox="0 0 900 350" style="display:block; width:100%; height:auto;">
+        <rect width="900" height="350" fill="#fff"/>
+
+        <!-- Letras -->
+        <text x="310" y="150" text-anchor="middle" font-family="'Tenor Sans', sans-serif" font-size="90" fill="#0a1525">M</text>
+        <text x="435" y="150" text-anchor="middle" font-family="'Tenor Sans', sans-serif" font-size="90" fill="#0a1525">A</text>
+        <text x="560" y="150" text-anchor="middle" font-family="'Tenor Sans', sans-serif" font-size="90" fill="#0a1525">E</text>
+
+        <!-- Linhas de cota — espacamento entre M e A -->
+        <line x1="348" y1="165" x2="398" y2="165" stroke="#a9754d" stroke-width="1" stroke-dasharray="4,2"/>
+        <line x1="348" y1="160" x2="348" y2="170" stroke="#a9754d" stroke-width="1"/>
+        <line x1="398" y1="160" x2="398" y2="170" stroke="#a9754d" stroke-width="1"/>
+        <text x="373" y="185" text-anchor="middle" font-family="monospace" font-size="11" fill="#a9754d">18px</text>
+
+        <!-- Linhas de cota — espacamento entre A e E -->
+        <line x1="473" y1="165" x2="523" y2="165" stroke="#a9754d" stroke-width="1" stroke-dasharray="4,2"/>
+        <line x1="473" y1="160" x2="473" y2="170" stroke="#a9754d" stroke-width="1"/>
+        <line x1="523" y1="160" x2="523" y2="170" stroke="#a9754d" stroke-width="1"/>
+        <text x="498" y="185" text-anchor="middle" font-family="monospace" font-size="11" fill="#a9754d">18px</text>
+
+        <!-- Linha terra cotta -->
+        <line x1="275" y1="210" x2="595" y2="210" stroke="#a9754d" stroke-width="2"/>
+
+        <!-- Cota da linha terra cotta -->
+        <line x1="275" y1="155" x2="275" y2="215" stroke="#ccc" stroke-width="0.5" stroke-dasharray="3,2"/>
+        <line x1="595" y1="155" x2="595" y2="215" stroke="#ccc" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+        <!-- Gap entre texto MAE e linha -->
+        <line x1="610" y1="155" x2="610" y2="210" stroke="#a9754d" stroke-width="1" stroke-dasharray="4,2"/>
+        <line x1="605" y1="155" x2="615" y2="155" stroke="#a9754d" stroke-width="1"/>
+        <line x1="605" y1="210" x2="615" y2="210" stroke="#a9754d" stroke-width="1"/>
+        <text x="640" y="186" text-anchor="middle" font-family="monospace" font-size="10" fill="#a9754d">25px</text>
+
+        <!-- Subtitulo -->
+        <text x="435" y="245" text-anchor="middle" font-family="'Raleway', sans-serif" font-weight="300" font-size="12" fill="#0a1525" letter-spacing="5" opacity="0.65">MODERNA ARQUITETURA E ENGENHARIA</text>
+
+        <!-- Gap entre linha e subtitulo -->
+        <line x1="610" y1="210" x2="610" y2="240" stroke="#a9754d" stroke-width="1" stroke-dasharray="4,2"/>
+        <line x1="605" y1="240" x2="615" y2="240" stroke="#a9754d" stroke-width="1"/>
+        <text x="640" y="228" text-anchor="middle" font-family="monospace" font-size="10" fill="#a9754d">27px</text>
+
+        <!-- Specs box -->
+        <rect x="250" y="275" width="400" height="55" rx="8" fill="#f7f6f4" stroke="#e0ddd9" stroke-width="1"/>
+        <text x="270" y="296" font-family="monospace" font-size="11" fill="#555">MAE</text>
+        <text x="340" y="296" font-family="monospace" font-size="10" fill="#999">Tenor Sans  |  90px  |  letter-spacing: 18px</text>
+        <text x="270" y="318" font-family="monospace" font-size="11" fill="#555">Subtitulo</text>
+        <text x="340" y="318" font-family="monospace" font-size="10" fill="#999">Raleway 300  |  12px  |  letter-spacing: 5px</text>
+      </svg>
+    </div>
+
+    <p class="section-text" style="font-size:13px;">
+      <strong>Proporcao em outras escalas:</strong> Ao reduzir ou ampliar a logo,
+      manter a razao de espacamento de 20% do tamanho da fonte.
+      Exemplo: fonte 45px = letter-spacing 9px.
+    </p>
+  </div>
+
+  <!-- ==================== 04 — AREA DE PROTECAO ==================== -->
+  <div class="section-gray">
+    <div class="inner">
+      <div class="section-number">04</div>
+      <div class="section-title">Area de Protecao</div>
+      <div class="section-line"></div>
+      <p class="section-text">
+        A area de protecao garante que nenhum elemento visual interfira na leitura da marca.
+        A margem minima ao redor da logo corresponde a altura da letra "E" da sigla.
+      </p>
+
+      <div class="spacing-card">
+        <svg viewBox="0 0 900 320" style="display:block; width:100%; height:auto;">
+          <rect width="900" height="320" fill="#fff"/>
+
+          <!-- Area de protecao (retangulo tracejado) -->
+          <rect x="200" y="40" width="500" height="240" rx="0" fill="none" stroke="#a9754d" stroke-width="1" stroke-dasharray="6,4" opacity="0.5"/>
+
+          <!-- Margem indicada -->
+          <rect x="250" y="80" width="400" height="160" fill="#f7f6f4" rx="0"/>
+
+          <!-- Logo dentro -->
+          <text x="450" y="160" text-anchor="middle" font-family="'Tenor Sans', sans-serif" font-size="70" fill="#0a1525" letter-spacing="14">MAE</text>
+          <line x1="365" y1="177" x2="535" y2="177" stroke="#a9754d" stroke-width="1.5"/>
+          <text x="450" y="202" text-anchor="middle" font-family="'Raleway', sans-serif" font-weight="300" font-size="9" fill="#0a1525" letter-spacing="4" opacity="0.65">MODERNA ARQUITETURA E ENGENHARIA</text>
+
+          <!-- Indicador "E" margem -->
+          <text x="220" y="165" text-anchor="middle" font-family="'Tenor Sans', sans-serif" font-size="28" fill="#a9754d" opacity="0.4">E</text>
+          <text x="680" y="165" text-anchor="middle" font-family="'Tenor Sans', sans-serif" font-size="28" fill="#a9754d" opacity="0.4">E</text>
+          <text x="450" y="58" text-anchor="middle" font-family="'Tenor Sans', sans-serif" font-size="28" fill="#a9754d" opacity="0.4">E</text>
+          <text x="450" y="300" text-anchor="middle" font-family="'Tenor Sans', sans-serif" font-size="28" fill="#a9754d" opacity="0.4">E</text>
+        </svg>
+      </div>
+      <p class="protection-note">A margem minima e equivalente a altura da letra "E" em todas as direcoes.</p>
+    </div>
+  </div>
+
+  <!-- ==================== 05 — PALETA DE CORES ==================== -->
+  <div class="section">
+    <div class="section-number">05</div>
+    <div class="section-title">Paleta de Cores</div>
+    <div class="section-line"></div>
+    <p class="section-text">
+      A paleta da MAE transmite sofisticacao e solidez. O terra cotta (Peru) e a cor de destaque,
+      usada exclusivamente como detalhe. O azul real e a cor principal do texto e fundos escuros.
+    </p>
+
+    <div class="grid-4">
+      <!-- Peru -->
+      <div class="swatch">
+        <div class="swatch-color" style="background: #a9754d;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Peru (Terra Cotta)</div>
+          <div class="swatch-hex">#a9754d</div>
+          <div class="swatch-rgb">RGB 169, 117, 77</div>
+        </div>
+      </div>
+      <!-- Azul Real -->
+      <div class="swatch">
+        <div class="swatch-color" style="background: #0a1525;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Azul Real</div>
+          <div class="swatch-hex">#0a1525</div>
+          <div class="swatch-rgb">RGB 10, 21, 37</div>
+        </div>
+      </div>
+      <!-- Preto Chumbo -->
+      <div class="swatch">
+        <div class="swatch-color" style="background: #242326;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Preto Chumbo</div>
+          <div class="swatch-hex">#242326</div>
+          <div class="swatch-rgb">RGB 36, 35, 38</div>
+        </div>
+      </div>
+      <!-- Off White -->
+      <div class="swatch">
+        <div class="swatch-color" style="background: #e8e6e3; border: 1px solid #ddd;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Off White</div>
+          <div class="swatch-hex">#e8e6e3</div>
+          <div class="swatch-rgb">RGB 232, 230, 227</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="warning-box" style="background:#0a1525; margin-top:30px;">
+      <strong>Uso do terra cotta</strong>
+      A cor terra cotta (#a9754d) deve ser usada exclusivamente como detalhe —
+      linhas divisoras, acentos e pequenos elementos graficos.
+      Nunca como cor de fundo principal ou cor de texto corrido.
+    </div>
+  </div>
+
+  <!-- ==================== 06 — TIPOGRAFIA ==================== -->
+  <div class="section-dark">
+    <div class="inner">
+      <div class="section-number" style="color:#a9754d;">06</div>
+      <div class="section-title">Tipografia</div>
+      <div class="section-line"></div>
+
+      <div class="grid-2">
+        <!-- Tenor Sans -->
+        <div class="type-sample">
+          <div class="type-label">Fonte primaria — Logo</div>
+          <div class="type-name" style="font-family:'Tenor Sans', sans-serif;">Tenor Sans</div>
+          <div class="type-meta">Google Fonts — Regular 400</div>
+          <div class="type-alphabet" style="font-family:'Tenor Sans', sans-serif;">
+            ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+            abcdefghijklmnopqrstuvwxyz<br>
+            0123456789
+          </div>
+        </div>
+
+        <!-- Raleway -->
+        <div class="type-sample">
+          <div class="type-label">Fonte secundaria — Apoio</div>
+          <div class="type-name" style="font-family:'Raleway', sans-serif; font-weight:300;">Raleway</div>
+          <div class="type-meta">Google Fonts — Light 300, Regular 400, Medium 500</div>
+          <div class="type-alphabet" style="font-family:'Raleway', sans-serif; font-weight:300;">
+            ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+            abcdefghijklmnopqrstuvwxyz<br>
+            0123456789
+          </div>
+        </div>
+      </div>
+
+      <p class="section-text" style="color:#d9d9d9; margin-top:20px;">
+        A Tenor Sans e usada exclusivamente na sigla MAE.
+        A Raleway Light e usada no descritivo "Moderna Arquitetura e Engenharia" e em textos de apoio da marca.
+      </p>
+    </div>
+  </div>
+
+  <!-- ==================== 07 — USOS INCORRETOS ==================== -->
+  <div class="section">
+    <div class="section-number">07</div>
+    <div class="section-title">Usos Incorretos</div>
+    <div class="section-line"></div>
+    <p class="section-text">
+      Para preservar a integridade da marca, as seguintes alteracoes sao proibidas:
+    </p>
+
+    <div class="grid-3" style="margin-top:30px;">
+      <!-- Erro 1: Espacamento diferente -->
+      <div class="dont-card">
+        <svg viewBox="0 0 300 160">
+          <rect width="300" height="160" fill="#f7f6f4"/>
+          <text x="150" y="85" text-anchor="middle" font-family="'Tenor Sans', sans-serif" font-size="50" fill="#0a1525" letter-spacing="2">MAE</text>
+          <line x1="90" y1="100" x2="210" y2="100" stroke="#a9754d" stroke-width="1.2"/>
+          <text x="150" y="120" text-anchor="middle" font-family="'Raleway', sans-serif" font-weight="300" font-size="6" fill="#0a1525" letter-spacing="3" opacity="0.65">MODERNA ARQUITETURA E ENGENHARIA</text>
+        </svg>
+        <div class="dont-label">Nao alterar o espacamento</div>
+      </div>
+
+      <!-- Erro 2: Fonte diferente -->
+      <div class="dont-card">
+        <svg viewBox="0 0 300 160">
+          <rect width="300" height="160" fill="#f7f6f4"/>
+          <text x="150" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="50" fill="#0a1525" letter-spacing="10">MAE</text>
+          <line x1="90" y1="100" x2="210" y2="100" stroke="#a9754d" stroke-width="1.2"/>
+          <text x="150" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-weight="300" font-size="6" fill="#0a1525" letter-spacing="3" opacity="0.65">MODERNA ARQUITETURA E ENGENHARIA</text>
+        </svg>
+        <div class="dont-label">Nao trocar a tipografia</div>
+      </div>
+
+      <!-- Erro 3: Sem linha terra cotta -->
+      <div class="dont-card">
+        <svg viewBox="0 0 300 160">
+          <rect width="300" height="160" fill="#f7f6f4"/>
+          <text x="150" y="85" text-anchor="middle" font-family="'Tenor Sans', sans-serif" font-size="50" fill="#0a1525" letter-spacing="10">MAE</text>
+          <text x="150" y="115" text-anchor="middle" font-family="'Raleway', sans-serif" font-weight="300" font-size="6" fill="#0a1525" letter-spacing="3" opacity="0.65">MODERNA ARQUITETURA E ENGENHARIA</text>
+        </svg>
+        <div class="dont-label">Nao remover a linha divisora</div>
+      </div>
+
+      <!-- Erro 4: Cores erradas -->
+      <div class="dont-card">
+        <svg viewBox="0 0 300 160">
+          <rect width="300" height="160" fill="#f7f6f4"/>
+          <text x="150" y="85" text-anchor="middle" font-family="'Tenor Sans', sans-serif" font-size="50" fill="#e74c3c" letter-spacing="10">MAE</text>
+          <line x1="90" y1="100" x2="210" y2="100" stroke="#3498db" stroke-width="1.2"/>
+          <text x="150" y="120" text-anchor="middle" font-family="'Raleway', sans-serif" font-weight="300" font-size="6" fill="#e74c3c" letter-spacing="3" opacity="0.65">MODERNA ARQUITETURA E ENGENHARIA</text>
+        </svg>
+        <div class="dont-label">Nao usar cores fora da paleta</div>
+      </div>
+
+      <!-- Erro 5: Distorcer -->
+      <div class="dont-card">
+        <svg viewBox="0 0 300 160">
+          <rect width="300" height="160" fill="#f7f6f4"/>
+          <text x="150" y="85" text-anchor="middle" font-family="'Tenor Sans', sans-serif" font-size="50" fill="#0a1525" letter-spacing="10" transform="scale(1.4, 0.7) translate(-42, 42)">MAE</text>
+          <line x1="90" y1="100" x2="210" y2="100" stroke="#a9754d" stroke-width="1.2"/>
+          <text x="150" y="120" text-anchor="middle" font-family="'Raleway', sans-serif" font-weight="300" font-size="6" fill="#0a1525" letter-spacing="3" opacity="0.65">MODERNA ARQUITETURA E ENGENHARIA</text>
+        </svg>
+        <div class="dont-label">Nao distorcer ou esticar</div>
+      </div>
+
+      <!-- Erro 6: Rotacionar -->
+      <div class="dont-card">
+        <svg viewBox="0 0 300 160">
+          <rect width="300" height="160" fill="#f7f6f4"/>
+          <g transform="rotate(-15, 150, 80)">
+            <text x="150" y="85" text-anchor="middle" font-family="'Tenor Sans', sans-serif" font-size="50" fill="#0a1525" letter-spacing="10">MAE</text>
+            <line x1="90" y1="100" x2="210" y2="100" stroke="#a9754d" stroke-width="1.2"/>
+          </g>
+          <text x="150" y="130" text-anchor="middle" font-family="'Raleway', sans-serif" font-weight="300" font-size="6" fill="#0a1525" letter-spacing="3" opacity="0.65">MODERNA ARQUITETURA E ENGENHARIA</text>
+        </svg>
+        <div class="dont-label">Nao rotacionar a logo</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 08 — ESPECIFICACOES TECNICAS ==================== -->
+  <div class="section-dark">
+    <div class="inner">
+      <div class="section-number" style="color:#a9754d;">08</div>
+      <div class="section-title">Especificacoes Tecnicas</div>
+      <div class="section-line"></div>
+
+      <div class="spacing-card" style="background:#111a2a; border:1px solid #1a2a3a;">
+        <table style="width:100%; border-collapse:collapse; font-size:14px;">
+          <tr style="border-bottom:1px solid #1a2a3a;">
+            <td style="padding:14px 0; color:#a9754d; font-weight:500; width:40%;">Elemento</td>
+            <td style="padding:14px 0; color:#a9754d; font-weight:500;">Especificacao</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1a2a3a;">
+            <td style="padding:14px 0; color:#d9d9d9;">Sigla MAE</td>
+            <td style="padding:14px 0; color:#fff; font-family:monospace;">Tenor Sans | Regular 400</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1a2a3a;">
+            <td style="padding:14px 0; color:#d9d9d9;">Tamanho base da sigla</td>
+            <td style="padding:14px 0; color:#fff; font-family:monospace;">90px</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1a2a3a;">
+            <td style="padding:14px 0; color:#d9d9d9;">Letter-spacing da sigla</td>
+            <td style="padding:14px 0; color:#fff; font-family:monospace;">18px (proporcao fixa: 20% do font-size)</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1a2a3a;">
+            <td style="padding:14px 0; color:#d9d9d9;">Descritivo</td>
+            <td style="padding:14px 0; color:#fff; font-family:monospace;">Raleway Light 300 | 12px | letter-spacing: 5px</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1a2a3a;">
+            <td style="padding:14px 0; color:#d9d9d9;">Linha divisora</td>
+            <td style="padding:14px 0; color:#fff; font-family:monospace;">Cor: #a9754d | Espessura: 2px | Largura: ~210px</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1a2a3a;">
+            <td style="padding:14px 0; color:#d9d9d9;">Gap sigla → linha</td>
+            <td style="padding:14px 0; color:#fff; font-family:monospace;">25px</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 0; color:#d9d9d9;">Gap linha → descritivo</td>
+            <td style="padding:14px 0; color:#fff; font-family:monospace;">27px</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="warning-box" style="margin-top:30px;">
+        <strong>Tabela de escalas</strong>
+        <table style="width:100%; border-collapse:collapse; font-size:13px; margin-top:10px;">
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.2);">
+            <td style="padding:10px 0;">Uso</td>
+            <td style="padding:10px 0;">Font-size</td>
+            <td style="padding:10px 0;">Letter-spacing</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.2);">
+            <td style="padding:10px 0;">Web hero / banner</td>
+            <td style="padding:10px 0; font-family:monospace;">90px</td>
+            <td style="padding:10px 0; font-family:monospace;">18px</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.2);">
+            <td style="padding:10px 0;">Cabecalho / header</td>
+            <td style="padding:10px 0; font-family:monospace;">45px</td>
+            <td style="padding:10px 0; font-family:monospace;">9px</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.2);">
+            <td style="padding:10px 0;">Cartao de visita</td>
+            <td style="padding:10px 0; font-family:monospace;">30px</td>
+            <td style="padding:10px 0; font-family:monospace;">6px</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 0;">Favicon / icone</td>
+            <td style="padding:10px 0; font-family:monospace;">16px</td>
+            <td style="padding:10px 0; font-family:monospace;">3.2px</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== FECHAMENTO ==================== -->
+  <div class="section-terra">
+    <svg viewBox="0 0 300 100" style="max-width:300px; margin:0 auto 20px;">
+      <text x="150" y="50" text-anchor="middle" font-family="'Tenor Sans', sans-serif" font-size="45" fill="#fff" letter-spacing="9">MAE</text>
+      <line x1="100" y1="62" x2="200" y2="62" stroke="#fff" stroke-width="1" opacity="0.5"/>
+      <text x="150" y="80" text-anchor="middle" font-family="'Raleway', sans-serif" font-weight="300" font-size="5.5" fill="#fff" letter-spacing="2.5" opacity="0.7">MODERNA ARQUITETURA E ENGENHARIA</text>
+    </svg>
+    <p style="font-family:'Raleway', sans-serif; font-weight:300; font-size:13px; letter-spacing:4px; opacity:0.8;">
+      MODERNA ARQUITETURA E ENGENHARIA &copy; 2026
+    </p>
+  </div>
+
+</body>
+</html>
