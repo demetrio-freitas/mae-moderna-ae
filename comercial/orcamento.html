@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moderna AE — Orcamento</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Raleway:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    @media print { body { padding: 0; } .no-print { display: none; } @page { margin: 20mm; } }
+
+    body { font-family: 'Raleway', sans-serif; background: #f5f4f2; color: #0a1525; }
+
+    .page {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    /* HEADER */
+    .header {
+      background: #0a1525;
+      padding: 40px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .header-logo {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 24px;
+      color: #e8e6e3;
+      letter-spacing: 5px;
+    }
+    .header-sub {
+      font-size: 9px;
+      color: #d9d9d9;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-top: 4px;
+    }
+    .header-line { width: 40px; height: 1.5px; background: #a9754d; margin-top: 8px; }
+    .header-right {
+      text-align: right;
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.8;
+    }
+    .header-doc {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 14px;
+      color: #a9754d;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* BODY */
+    .body { padding: 40px 50px; }
+
+    /* INFO GRID */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 40px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #eee;
+    }
+    .info-label {
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #a9754d;
+      margin-bottom: 4px;
+    }
+    .info-value {
+      font-size: 14px;
+      font-weight: 400;
+      color: #0a1525;
+      line-height: 1.6;
+    }
+
+    /* DESCRICAO */
+    .descricao {
+      margin-bottom: 40px;
+    }
+    .descricao h3 {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 16px;
+      color: #0a1525;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .descricao p {
+      font-size: 13px;
+      line-height: 1.8;
+      color: #555;
+      font-weight: 300;
+    }
+
+    /* TABELA */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+    thead th {
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #a9754d;
+      text-align: left;
+      padding: 10px 0;
+      border-bottom: 2px solid #a9754d;
+      font-weight: 500;
+    }
+    thead th:last-child { text-align: right; }
+    tbody td {
+      font-size: 13px;
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f0f0;
+      color: #333;
+      font-weight: 300;
+    }
+    tbody td:last-child { text-align: right; font-family: monospace; font-size: 13px; }
+    tbody tr:hover { background: #fafaf9; }
+
+    /* TOTAIS */
+    .totais {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 40px;
+    }
+    .totais-box {
+      width: 280px;
+    }
+    .totais-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      font-size: 13px;
+      color: #555;
+      font-weight: 300;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .totais-row span:last-child { font-family: monospace; }
+    .totais-total {
+      display: flex;
+      justify-content: space-between;
+      padding: 14px 0;
+      font-size: 16px;
+      color: #0a1525;
+      font-weight: 500;
+      border-top: 2px solid #a9754d;
+      margin-top: 8px;
+    }
+    .totais-total span:last-child { font-family: 'Tenor Sans', sans-serif; letter-spacing: 1px; }
+
+    /* CONDICOES */
+    .condicoes {
+      background: #f9f8f7;
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin-bottom: 40px;
+    }
+    .condicoes h4 {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #a9754d;
+      margin-bottom: 12px;
+    }
+    .condicoes ul {
+      list-style: none;
+      font-size: 12px;
+      color: #666;
+      font-weight: 300;
+      line-height: 2;
+    }
+    .condicoes ul li::before {
+      content: "—";
+      color: #a9754d;
+      margin-right: 8px;
+    }
+
+    /* FOOTER */
+    .orc-footer {
+      border-top: 1px solid #eee;
+      padding: 30px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .orc-footer-logo {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 12px;
+      color: #0a1525;
+      letter-spacing: 2px;
+      opacity: 0.3;
+    }
+    .orc-footer-info {
+      font-size: 11px;
+      color: #999;
+      text-align: right;
+      line-height: 1.6;
+    }
+
+    /* ASSINATURA */
+    .assinatura {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+      padding-top: 30px;
+    }
+    .assinatura-box {
+      text-align: center;
+      padding-top: 60px;
+      border-top: 1px solid #ddd;
+    }
+    .assinatura-nome { font-size: 13px; font-weight: 500; color: #0a1525; }
+    .assinatura-cargo { font-size: 11px; color: #999; margin-top: 2px; }
+
+    /* PRINT BTN */
+    .print-btn {
+      display: block;
+      max-width: 800px;
+      margin: 20px auto;
+      text-align: center;
+    }
+    .print-btn button {
+      background: #a9754d;
+      color: #fff;
+      border: none;
+      padding: 12px 30px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .print-btn button:hover { opacity: 0.85; }
+  </style>
+</head>
+<body>
+
+<div class="print-btn no-print">
+  <button onclick="window.print()">Imprimir / Salvar PDF</button>
+</div>
+
+<div class="page">
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <div class="header-logo">MODERNA</div>
+      <div class="header-sub">Arquitetura e Engenharia</div>
+      <div class="header-line"></div>
+    </div>
+    <div class="header-right">
+      <div class="header-doc">Orcamento</div>
+      <div style="margin-top:8px;">
+        No 001/2026<br>
+        Data: 20/03/2026<br>
+        Validade: 30 dias
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- INFO -->
+    <div class="info-grid">
+      <div>
+        <div class="info-label">Cliente</div>
+        <div class="info-value">
+          Nome do Cliente<br>
+          CPF/CNPJ: 000.000.000-00
+        </div>
+      </div>
+      <div>
+        <div class="info-label">Imovel</div>
+        <div class="info-value">
+          Studio 35m2 — Meireles<br>
+          Rua Example, 123 — Apto 401
+        </div>
+      </div>
+      <div>
+        <div class="info-label">Contato</div>
+        <div class="info-value">
+          (85) 99999-9999<br>
+          cliente@email.com
+        </div>
+      </div>
+      <div>
+        <div class="info-label">Responsavel tecnico</div>
+        <div class="info-value">
+          Nome da Arquiteta<br>
+          CAU A000000-0
+        </div>
+      </div>
+    </div>
+
+    <!-- DESCRICAO -->
+    <div class="descricao">
+      <h3>Escopo do projeto</h3>
+      <p>
+        Reforma completa de studio de 35m2 no bairro Meireles, Fortaleza — CE.
+        Inclui demolicao parcial, nova disposicao de layout, instalacoes eletricas
+        e hidraulicas, revestimentos, marcenaria planejada e acabamentos finais.
+      </p>
+    </div>
+
+    <!-- TABELA DE ITENS -->
+    <table>
+      <thead>
+        <tr>
+          <th style="width:50%;">Item</th>
+          <th>Qtd</th>
+          <th>Unidade</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Projeto arquitetonico + interiores</td>
+          <td>1</td>
+          <td>vb</td>
+          <td>R$ 4.500,00</td>
+        </tr>
+        <tr>
+          <td>Demolicao e remocao de entulho</td>
+          <td>1</td>
+          <td>vb</td>
+          <td>R$ 2.800,00</td>
+        </tr>
+        <tr>
+          <td>Instalacao eletrica (pontos novos + quadro)</td>
+          <td>1</td>
+          <td>vb</td>
+          <td>R$ 3.200,00</td>
+        </tr>
+        <tr>
+          <td>Instalacao hidraulica (banheiro + cozinha)</td>
+          <td>1</td>
+          <td>vb</td>
+          <td>R$ 2.600,00</td>
+        </tr>
+        <tr>
+          <td>Revestimento piso — porcelanato 60x60</td>
+          <td>35</td>
+          <td>m2</td>
+          <td>R$ 5.250,00</td>
+        </tr>
+        <tr>
+          <td>Revestimento paredes — banheiro e cozinha</td>
+          <td>18</td>
+          <td>m2</td>
+          <td>R$ 2.700,00</td>
+        </tr>
+        <tr>
+          <td>Pintura geral (paredes + teto)</td>
+          <td>1</td>
+          <td>vb</td>
+          <td>R$ 3.500,00</td>
+        </tr>
+        <tr>
+          <td>Marcenaria planejada (cozinha + dormitorio)</td>
+          <td>1</td>
+          <td>vb</td>
+          <td>R$ 12.000,00</td>
+        </tr>
+        <tr>
+          <td>Iluminacao (spots + pendentes + fitas LED)</td>
+          <td>1</td>
+          <td>vb</td>
+          <td>R$ 2.400,00</td>
+        </tr>
+        <tr>
+          <td>Loucas e metais (banheiro + cozinha)</td>
+          <td>1</td>
+          <td>vb</td>
+          <td>R$ 3.800,00</td>
+        </tr>
+        <tr>
+          <td>Mao de obra civil</td>
+          <td>1</td>
+          <td>vb</td>
+          <td>R$ 8.000,00</td>
+        </tr>
+        <tr>
+          <td>Gerenciamento e acompanhamento de obra</td>
+          <td>1</td>
+          <td>vb</td>
+          <td>R$ 3.500,00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- TOTAIS -->
+    <div class="totais">
+      <div class="totais-box">
+        <div class="totais-row"><span>Subtotal</span><span>R$ 54.250,00</span></div>
+        <div class="totais-row"><span>Desconto (5%)</span><span>- R$ 2.712,50</span></div>
+        <div class="totais-total"><span>Total</span><span>R$ 51.537,50</span></div>
+      </div>
+    </div>
+
+    <!-- CONDICOES -->
+    <div class="condicoes">
+      <h4>Condicoes comerciais</h4>
+      <ul>
+        <li>Entrada de 30% na assinatura do contrato</li>
+        <li>3 parcelas mensais de 23,3% cada durante a obra</li>
+        <li>Prazo estimado de execucao: 45 dias uteis</li>
+        <li>Garantia de 1 ano sobre servicos executados</li>
+        <li>Eventuais alteracoes de projeto serao orcadas separadamente</li>
+        <li>Valores sujeitos a reajuste apos validade do orcamento</li>
+      </ul>
+    </div>
+
+    <!-- ASSINATURA -->
+    <div class="assinatura">
+      <div class="assinatura-box">
+        <div class="assinatura-nome">Moderna AE</div>
+        <div class="assinatura-cargo">Contratada</div>
+      </div>
+      <div class="assinatura-box">
+        <div class="assinatura-nome">Nome do Cliente</div>
+        <div class="assinatura-cargo">Contratante</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="orc-footer">
+    <div class="orc-footer-logo">MODERNA</div>
+    <div class="orc-footer-info">
+      contato@modernaae.com.br | (85) 99999-9999<br>
+      modernaae.com.br | Fortaleza — CE
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

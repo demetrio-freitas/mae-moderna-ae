@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moderna AE — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Raleway:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Raleway', sans-serif; background: #f5f4f2; color: #0a1525; }
+    @media print { @page { margin: 15mm; } .no-print { display: none; } }
+
+    /* NAV */
+    nav {
+      background: #0a1525;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo { font-family: 'Tenor Sans', sans-serif; font-size: 18px; color: #e8e6e3; letter-spacing: 4px; }
+    nav .nav-line { width: 30px; height: 1.5px; background: #a9754d; margin-top: 4px; }
+    nav .nav-right { font-size: 10px; color: rgba(255,255,255,0.35); letter-spacing: 2px; text-transform: uppercase; }
+
+    /* HERO -->
+    .port-hero {
+      background: #0a1525;
+      padding: 80px 50px 100px;
+      text-align: center;
+    }
+    .port-hero h1 {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 42px;
+      color: #e8e6e3;
+      letter-spacing: 3px;
+      font-weight: 400;
+    }
+    .port-hero .line { width: 60px; height: 2px; background: #a9754d; margin: 20px auto; }
+    .port-hero p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      font-weight: 300;
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* PROJETO CARD */
+    .projeto {
+      max-width: 900px;
+      margin: 60px auto;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .projeto-header {
+      padding: 36px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .projeto-num {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 48px;
+      color: #a9754d;
+      opacity: 0.15;
+      line-height: 1;
+    }
+    .projeto-titulo {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 22px;
+      color: #0a1525;
+      letter-spacing: 1px;
+    }
+    .projeto-local {
+      font-size: 12px;
+      color: #a9754d;
+      letter-spacing: 2px;
+      margin-top: 4px;
+    }
+    .projeto-tags {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .projeto-tag {
+      font-size: 10px;
+      color: #999;
+      letter-spacing: 1px;
+      background: #f5f4f2;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    /* GALERIA PLACEHOLDER */
+    .projeto-galeria {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 4px;
+      padding: 4px;
+    }
+    .projeto-galeria-main {
+      aspect-ratio: 16/10;
+      background: #e8e6e3;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: #bbb;
+      font-weight: 300;
+    }
+    .projeto-galeria-side {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .projeto-galeria-thumb {
+      flex: 1;
+      background: #e8e6e3;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #ccc;
+      font-weight: 300;
+    }
+
+    /* DETALHES */
+    .projeto-detalhes {
+      padding: 30px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 20px;
+      border-top: 1px solid #f0f0f0;
+    }
+    .detalhe-label {
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #a9754d;
+      margin-bottom: 4px;
+    }
+    .detalhe-value {
+      font-size: 14px;
+      color: #333;
+      font-weight: 400;
+    }
+
+    /* DESCRICAO */
+    .projeto-desc {
+      padding: 0 40px 30px;
+      font-size: 13px;
+      line-height: 1.8;
+      color: #666;
+      font-weight: 300;
+    }
+
+    /* ANTES/DEPOIS */
+    .projeto-antes-depois {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+      padding: 0 4px 4px;
+    }
+    .ad-box {
+      aspect-ratio: 16/9;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .ad-label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    /* FOOTER */
+    .port-footer {
+      background: #0a1525;
+      padding: 40px 50px;
+      text-align: center;
+      margin-top: 60px;
+    }
+    .port-footer .logo { font-family: 'Tenor Sans', sans-serif; font-size: 18px; color: #e8e6e3; letter-spacing: 4px; }
+    .port-footer .line { width: 30px; height: 1px; background: #a9754d; margin: 10px auto; }
+    .port-footer p { font-size: 11px; color: rgba(255,255,255,0.3); line-height: 1.8; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div>
+      <div class="logo">MODERNA</div>
+      <div class="nav-line"></div>
+    </div>
+    <div class="nav-right">Portfolio de projetos</div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="port-hero">
+    <h1>Nossos Projetos</h1>
+    <div class="line"></div>
+    <p>Cada reforma e unica. Aqui reunimos alguns dos nossos trabalhos em apartamentos compactos e studios em Fortaleza.</p>
+  </div>
+
+  <!-- PROJETO 1 -->
+  <div class="projeto">
+    <div class="projeto-header">
+      <div>
+        <div class="projeto-titulo">Studio Meireles</div>
+        <div class="projeto-local">Meireles — Fortaleza, CE</div>
+        <div class="projeto-tags">
+          <span class="projeto-tag">Reforma completa</span>
+          <span class="projeto-tag">Studio</span>
+          <span class="projeto-tag">Marcenaria</span>
+        </div>
+      </div>
+      <div class="projeto-num">01</div>
+    </div>
+    <div class="projeto-galeria">
+      <div class="projeto-galeria-main">foto principal</div>
+      <div class="projeto-galeria-side">
+        <div class="projeto-galeria-thumb">foto 2</div>
+        <div class="projeto-galeria-thumb">foto 3</div>
+      </div>
+    </div>
+    <div class="projeto-detalhes">
+      <div><div class="detalhe-label">Area</div><div class="detalhe-value">32m2</div></div>
+      <div><div class="detalhe-label">Prazo</div><div class="detalhe-value">40 dias</div></div>
+      <div><div class="detalhe-label">Tipo</div><div class="detalhe-value">Reforma completa</div></div>
+      <div><div class="detalhe-label">Ano</div><div class="detalhe-value">2026</div></div>
+    </div>
+    <div class="projeto-desc">
+      Reforma integral de studio de 32m2. O projeto incluiu nova disposicao de layout com cozinha integrada, banheiro renovado, marcenaria planejada multifuncional e iluminacao em camadas. O resultado: um espaco que parece ter o dobro do tamanho.
+    </div>
+    <div class="projeto-antes-depois">
+      <div class="ad-box" style="background:#e8e6e3;">
+        <div class="ad-label" style="color:#999;">Antes</div>
+        <div style="font-size:12px; color:#bbb;">foto antes</div>
+      </div>
+      <div class="ad-box" style="background:#0a1525;">
+        <div class="ad-label" style="color:#a9754d;">Depois</div>
+        <div style="font-size:12px; color:#555;">foto depois</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJETO 2 -->
+  <div class="projeto">
+    <div class="projeto-header">
+      <div>
+        <div class="projeto-titulo">Apartamento Aldeota</div>
+        <div class="projeto-local">Aldeota — Fortaleza, CE</div>
+        <div class="projeto-tags">
+          <span class="projeto-tag">Projeto + obra</span>
+          <span class="projeto-tag">2 quartos</span>
+        </div>
+      </div>
+      <div class="projeto-num">02</div>
+    </div>
+    <div class="projeto-galeria">
+      <div class="projeto-galeria-main">foto principal</div>
+      <div class="projeto-galeria-side">
+        <div class="projeto-galeria-thumb">foto 2</div>
+        <div class="projeto-galeria-thumb">foto 3</div>
+      </div>
+    </div>
+    <div class="projeto-detalhes">
+      <div><div class="detalhe-label">Area</div><div class="detalhe-value">45m2</div></div>
+      <div><div class="detalhe-label">Prazo</div><div class="detalhe-value">55 dias</div></div>
+      <div><div class="detalhe-label">Tipo</div><div class="detalhe-value">Projeto + obra</div></div>
+      <div><div class="detalhe-label">Ano</div><div class="detalhe-value">2026</div></div>
+    </div>
+    <div class="projeto-desc">
+      Apartamento de 2 quartos transformado com layout aberto, integrando sala e cozinha. Banheiro social completamente renovado, novos revestimentos e marcenaria planejada que maximiza o armazenamento em cada centimetro.
+    </div>
+    <div class="projeto-antes-depois">
+      <div class="ad-box" style="background:#e8e6e3;">
+        <div class="ad-label" style="color:#999;">Antes</div>
+        <div style="font-size:12px; color:#bbb;">foto antes</div>
+      </div>
+      <div class="ad-box" style="background:#0a1525;">
+        <div class="ad-label" style="color:#a9754d;">Depois</div>
+        <div style="font-size:12px; color:#555;">foto depois</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJETO 3 -->
+  <div class="projeto">
+    <div class="projeto-header">
+      <div>
+        <div class="projeto-titulo">Studio Coco</div>
+        <div class="projeto-local">Coco — Fortaleza, CE</div>
+        <div class="projeto-tags">
+          <span class="projeto-tag">Reforma completa</span>
+          <span class="projeto-tag">Airbnb</span>
+        </div>
+      </div>
+      <div class="projeto-num">03</div>
+    </div>
+    <div class="projeto-galeria">
+      <div class="projeto-galeria-main">foto principal</div>
+      <div class="projeto-galeria-side">
+        <div class="projeto-galeria-thumb">foto 2</div>
+        <div class="projeto-galeria-thumb">foto 3</div>
+      </div>
+    </div>
+    <div class="projeto-detalhes">
+      <div><div class="detalhe-label">Area</div><div class="detalhe-value">28m2</div></div>
+      <div><div class="detalhe-label">Prazo</div><div class="detalhe-value">35 dias</div></div>
+      <div><div class="detalhe-label">Tipo</div><div class="detalhe-value">Reforma completa</div></div>
+      <div><div class="detalhe-label">Ano</div><div class="detalhe-value">2025</div></div>
+    </div>
+    <div class="projeto-desc">
+      Studio de 28m2 reformado para operacao Airbnb. Foco em durabilidade, estetica fotografica e funcionalidade para hospedes. Cozinha compacta completa, banheiro moderno e area de descanso acolhedora com marcenaria otimizada.
+    </div>
+    <div class="projeto-antes-depois">
+      <div class="ad-box" style="background:#e8e6e3;">
+        <div class="ad-label" style="color:#999;">Antes</div>
+        <div style="font-size:12px; color:#bbb;">foto antes</div>
+      </div>
+      <div class="ad-box" style="background:#0a1525;">
+        <div class="ad-label" style="color:#a9754d;">Depois</div>
+        <div style="font-size:12px; color:#555;">foto depois</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="max-width:900px; margin:60px auto; background:#a9754d; border-radius:12px; padding:50px; text-align:center;">
+    <div style="font-family:'Tenor Sans',sans-serif; font-size:24px; color:#fff; letter-spacing:2px; margin-bottom:12px;">Quer transformar seu espaco?</div>
+    <div style="font-size:14px; color:rgba(255,255,255,0.7); font-weight:300; margin-bottom:24px;">Entre em contato e receba um orcamento personalizado.</div>
+    <div style="display:inline-flex; gap:20px;">
+      <a href="https://wa.me/5585999999999" style="background:#fff; color:#a9754d; padding:12px 28px; border-radius:6px; text-decoration:none; font-size:12px; letter-spacing:2px; text-transform:uppercase;">WhatsApp</a>
+      <a href="mailto:contato@modernaae.com.br" style="background:transparent; color:#fff; padding:12px 28px; border-radius:6px; text-decoration:none; font-size:12px; letter-spacing:2px; text-transform:uppercase; border:1px solid rgba(255,255,255,0.4);">Email</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="port-footer">
+    <div class="logo">MODERNA</div>
+    <div class="line"></div>
+    <p>
+      contato@modernaae.com.br | (85) 99999-9999<br>
+      modernaae.com.br | Fortaleza — CE
+    </p>
+  </div>
+
+</body>
+</html>
