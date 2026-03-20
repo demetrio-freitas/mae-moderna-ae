@@ -247,12 +247,92 @@
       margin: 0 auto;
     }
 
+    /* TABS NAV */
+    .tabs-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(10, 21, 37, 0.97);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+      border-bottom: 1px solid rgba(169, 117, 77, 0.15);
+    }
+    .tabs-nav-logo {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 16px;
+      color: #e8e6e3;
+      letter-spacing: 3px;
+      margin-right: 40px;
+      padding: 16px 0;
+      opacity: 0.5;
+    }
+    .tabs-nav button {
+      background: none;
+      border: none;
+      font-family: 'Raleway', sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      padding: 18px 20px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s;
+    }
+    .tabs-nav button:hover { color: rgba(255,255,255,0.7); }
+    .tabs-nav button.active {
+      color: #a9754d;
+      border-bottom-color: #a9754d;
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    body { padding-top: 56px; }
+
+    /* APLICACOES */
+    .app-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+    .app-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 50px;
+      margin: 40px 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+    .app-card iframe {
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+    }
+
     @media print {
       .section, .section-dark, .section-gray { page-break-after: always; }
+      .tabs-nav { display: none; }
+      body { padding-top: 0; }
     }
   </style>
 </head>
 <body>
+
+  <!-- TABS NAV -->
+  <div class="tabs-nav">
+    <div class="tabs-nav-logo">MAE</div>
+    <button class="active" onclick="showTab('manual')">Manual</button>
+    <button onclick="showTab('cartao')">Cartao</button>
+    <button onclick="showTab('assinatura')">Assinatura</button>
+    <button onclick="showTab('og')">OG Image</button>
+    <button onclick="showTab('whatsapp')">WhatsApp</button>
+  </div>
+
+  <!-- ==================== TAB: MANUAL ==================== -->
+  <div id="tab-manual" class="tab-content active">
 
   <!-- ==================== CAPA ==================== -->
   <div class="cover">
@@ -759,6 +839,148 @@
       MODERNA ARQUITETURA E ENGENHARIA &copy; 2026
     </p>
   </div>
+
+  </div><!-- fim tab-manual -->
+
+  <!-- ==================== TAB: CARTAO DE VISITA ==================== -->
+  <div id="tab-cartao" class="tab-content">
+    <div class="app-section">
+      <div class="section-number">Aplicacao</div>
+      <div class="section-title">Cartao de Visita</div>
+      <div class="section-line"></div>
+      <p class="section-text">Formato 9x5cm. Frente em azul real, verso em off white. Dados de contato no verso.</p>
+
+      <div class="app-card">
+        <p class="section-label" style="margin-bottom:20px;">Frente</p>
+        <svg viewBox="0 0 540 300" style="max-width:540px; width:100%; border-radius:8px; box-shadow:0 8px 40px rgba(0,0,0,0.2);">
+          <rect width="540" height="300" rx="8" fill="#0a1525"/>
+          <text x="270" y="145" text-anchor="middle" font-family="'Tenor Sans', sans-serif" font-size="48" fill="#e8e6e3" letter-spacing="10">MAE</text>
+          <line x1="220" y1="162" x2="320" y2="162" stroke="#a9754d" stroke-width="1.5"/>
+          <text x="270" y="183" text-anchor="middle" font-family="'Raleway', sans-serif" font-weight="300" font-size="8" fill="#d9d9d9" letter-spacing="3" opacity="0.55">MODERNA ARQUITETURA E ENGENHARIA</text>
+          <rect x="480" y="240" width="40" height="40" fill="none" stroke="#a9754d" stroke-width="1" opacity="0.2" rx="0"/>
+        </svg>
+      </div>
+
+      <div class="app-card">
+        <p class="section-label" style="margin-bottom:20px;">Verso</p>
+        <svg viewBox="0 0 540 300" style="max-width:540px; width:100%; border-radius:8px; box-shadow:0 8px 40px rgba(0,0,0,0.15);">
+          <rect width="540" height="300" rx="8" fill="#e8e6e3"/>
+          <!-- Nome e cargo -->
+          <text x="40" y="55" font-family="'Tenor Sans', sans-serif" font-size="18" fill="#0a1525" letter-spacing="1">Nome Completo</text>
+          <text x="40" y="75" font-family="'Raleway', sans-serif" font-weight="300" font-size="11" fill="#a9754d" letter-spacing="2">Arquiteta</text>
+          <!-- Logo pequena -->
+          <text x="490" y="55" text-anchor="middle" font-family="'Tenor Sans', sans-serif" font-size="14" fill="#0a1525" letter-spacing="3" opacity="0.3">MAE</text>
+          <!-- Divider -->
+          <line x1="40" y1="150" x2="70" y2="150" stroke="#a9754d" stroke-width="1.5"/>
+          <!-- Contatos -->
+          <text x="40" y="195" font-family="'Raleway', sans-serif" font-weight="300" font-size="11" fill="#0a1525" opacity="0.7"><tspan fill="#a9754d" font-size="9" letter-spacing="2">TEL  </tspan>(85) 99999-9999</text>
+          <text x="40" y="218" font-family="'Raleway', sans-serif" font-weight="300" font-size="11" fill="#0a1525" opacity="0.7"><tspan fill="#a9754d" font-size="9" letter-spacing="2">EMAIL  </tspan>contato@modernaae.com.br</text>
+          <text x="40" y="241" font-family="'Raleway', sans-serif" font-weight="300" font-size="11" fill="#0a1525" opacity="0.7"><tspan fill="#a9754d" font-size="9" letter-spacing="2">INSTA  </tspan>@modernaae</text>
+          <text x="40" y="264" font-family="'Raleway', sans-serif" font-weight="300" font-size="11" fill="#0a1525" opacity="0.7"><tspan fill="#a9754d" font-size="9" letter-spacing="2">LOCAL  </tspan>Fortaleza — CE</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TAB: ASSINATURA DE EMAIL ==================== -->
+  <div id="tab-assinatura" class="tab-content">
+    <div class="app-section">
+      <div class="section-number">Aplicacao</div>
+      <div class="section-title">Assinatura de Email</div>
+      <div class="section-line"></div>
+      <p class="section-text">Assinatura HTML compativel com Gmail, Outlook e Apple Mail. Linha terra cotta como separador visual.</p>
+
+      <div class="app-card" style="text-align:left;">
+        <p style="font-family:Arial,sans-serif; font-size:14px; color:#333; line-height:1.6; margin-bottom:24px;">
+          Ola,<br><br>Segue em anexo o orcamento conforme conversamos.<br>Qualquer duvida, estou a disposicao.<br><br>Atenciosamente,
+        </p>
+        <hr style="border:none; border-top:1px solid #ddd; margin-bottom:20px;">
+        <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #333;">
+          <tr>
+            <td style="padding-right: 20px; border-right: 2px solid #a9754d;">
+              <table cellpadding="0" cellspacing="0" border="0">
+                <tr><td style="font-family: 'Tenor Sans', Georgia, serif; font-size: 22px; color: #0a1525; letter-spacing: 4px; padding-bottom: 4px;">MAE</td></tr>
+                <tr><td style="font-size: 8px; color: #999; letter-spacing: 2px; text-transform: uppercase;">Moderna Arquitetura<br>e Engenharia</td></tr>
+              </table>
+            </td>
+            <td style="padding-left: 20px;">
+              <table cellpadding="0" cellspacing="0" border="0">
+                <tr><td style="font-size: 15px; font-weight: 600; color: #0a1525; padding-bottom: 2px;">Nome Completo</td></tr>
+                <tr><td style="font-size: 11px; color: #a9754d; letter-spacing: 1px; padding-bottom: 10px;">Arquiteta</td></tr>
+                <tr><td style="font-size: 12px; color: #555; padding-bottom: 3px;">(85) 99999-9999</td></tr>
+                <tr><td style="font-size: 12px; color: #555; padding-bottom: 3px;">contato@modernaae.com.br</td></tr>
+                <tr><td style="font-size: 11px; color: #999; padding-top: 6px;">Fortaleza — CE</td></tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="warning-box" style="text-align:left;">
+        <strong>Codigo HTML</strong>
+        O codigo completo da assinatura esta disponivel em <code style="background:rgba(255,255,255,0.2); padding:2px 6px; border-radius:4px; font-size:13px;">brand/assinatura-email.html</code> — basta copiar e colar nas configuracoes de assinatura do seu cliente de email.
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TAB: OG IMAGE ==================== -->
+  <div id="tab-og" class="tab-content">
+    <div class="app-section">
+      <div class="section-number">Aplicacao</div>
+      <div class="section-title">Open Graph Image</div>
+      <div class="section-line"></div>
+      <p class="section-text">Imagem para compartilhamento em redes sociais e previews de links. Formato 1200x630px.</p>
+
+      <div class="app-card">
+        <div style="width:100%; aspect-ratio:1200/630; background:#e8e6e3; border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+          <!-- Corners -->
+          <div style="position:absolute; top:30px; left:30px; width:60px; height:60px; border-left:1px solid #a9754d; border-top:1px solid #a9754d; opacity:0.2;"></div>
+          <div style="position:absolute; bottom:30px; right:30px; width:60px; height:60px; border-right:1px solid #a9754d; border-bottom:1px solid #a9754d; opacity:0.2;"></div>
+          <div style="font-family:'Tenor Sans',sans-serif; font-size:80px; color:#0a1525; letter-spacing:16px;">MAE</div>
+          <div style="width:180px; height:2px; background:#a9754d; margin:18px 0;"></div>
+          <div style="font-family:'Raleway',sans-serif; font-weight:300; font-size:12px; color:#0a1525; letter-spacing:5px; text-transform:uppercase; opacity:0.6;">Moderna Arquitetura e Engenharia</div>
+          <div style="font-family:'Raleway',sans-serif; font-weight:200; font-size:16px; color:#0a1525; margin-top:28px; opacity:0.5;">Pequenos espacos, <span style="color:#a9754d; opacity:1;">grandes transformacoes.</span></div>
+        </div>
+        <p style="font-size:11px; color:#999; margin-top:12px;">1200 x 630px — Fazer screenshot ou exportar para PNG</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TAB: CAPA WHATSAPP ==================== -->
+  <div id="tab-whatsapp" class="tab-content">
+    <div class="app-section">
+      <div class="section-number">Aplicacao</div>
+      <div class="section-title">Capa WhatsApp Business</div>
+      <div class="section-line"></div>
+      <p class="section-text">Imagem de capa para perfil comercial do WhatsApp Business. Formato 1125x337px.</p>
+
+      <div class="app-card">
+        <div style="width:100%; aspect-ratio:1125/337; background:#0a1525; border-radius:8px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+          <!-- Decos laterais -->
+          <div style="position:absolute; left:40px; top:50%; transform:translateY(-50%); width:1px; height:70px; background:#a9754d; opacity:0.15;"></div>
+          <div style="position:absolute; right:40px; top:50%; transform:translateY(-50%); width:1px; height:70px; background:#a9754d; opacity:0.15;"></div>
+          <div style="text-align:center;">
+            <div style="font-family:'Tenor Sans',sans-serif; font-size:50px; color:#e8e6e3; letter-spacing:10px;">MAE</div>
+            <div style="width:120px; height:1.5px; background:#a9754d; margin:12px auto;"></div>
+            <div style="font-family:'Raleway',sans-serif; font-weight:300; font-size:9px; color:#d9d9d9; letter-spacing:3px; text-transform:uppercase; opacity:0.55;">Moderna Arquitetura e Engenharia</div>
+            <div style="font-family:'Raleway',sans-serif; font-weight:200; font-size:11px; color:#d9d9d9; margin-top:16px; opacity:0.4;">Pequenos espacos, <span style="color:#a9754d; opacity:1;">grandes transformacoes.</span></div>
+          </div>
+        </div>
+        <p style="font-size:11px; color:#999; margin-top:12px;">1125 x 337px — Fazer screenshot ou exportar para PNG</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABS SCRIPT -->
+  <script>
+    function showTab(name) {
+      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tabs-nav button').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + name).classList.add('active');
+      event.target.classList.add('active');
+      window.scrollTo(0, 0);
+    }
+  </script>
 
 </body>
 </html>
