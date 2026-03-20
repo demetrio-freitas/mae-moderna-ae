@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAE — Moderna Arquitetura e Engenharia</title>
+  <meta name="description" content="MAE — Especialistas em reforma de apartamentos compactos e studios. Transformamos pequenos espacos em grandes experiencias.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Raleway:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --azul: #0a1525;
+      --terra: #a9754d;
+      --chumbo: #242326;
+      --off-white: #e8e6e3;
+      --fundo: #f5f4f2;
+      --texto: #333;
+      --texto-leve: #777;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Raleway', 'Helvetica Neue', sans-serif;
+      background: var(--fundo);
+      color: var(--texto);
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ========== NAV ========== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(245, 244, 242, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+    }
+    .nav-logo {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 22px;
+      color: var(--azul);
+      letter-spacing: 4px;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--texto-leve);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--terra); }
+
+    /* ========== HERO ========== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 40px 80px;
+    }
+    .hero-logo {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 90px;
+      color: var(--azul);
+      letter-spacing: 18px;
+      margin-bottom: 0;
+    }
+    .hero-line {
+      width: 190px;
+      height: 2px;
+      background: var(--terra);
+      margin: 24px auto;
+    }
+    .hero-desc {
+      font-size: 12px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--texto-leve);
+      margin-bottom: 50px;
+    }
+    .hero-slogan {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 200;
+      font-size: 28px;
+      color: var(--azul);
+      line-height: 1.5;
+      max-width: 500px;
+    }
+    .hero-slogan em {
+      font-style: normal;
+      color: var(--terra);
+    }
+
+    /* ========== SECTIONS ========== */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 120px 40px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 32px;
+      color: var(--azul);
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .section-line {
+      width: 40px;
+      height: 2px;
+      background: var(--terra);
+      margin-bottom: 36px;
+    }
+
+    .section-text {
+      font-size: 16px;
+      line-height: 1.9;
+      color: var(--texto);
+      max-width: 560px;
+      font-weight: 300;
+    }
+
+    /* ========== SOBRE ========== */
+    .sobre {
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+
+    /* ========== SERVICOS ========== */
+    .servicos-bg {
+      background: var(--off-white);
+    }
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      margin-top: 50px;
+    }
+    .servico-card {
+      padding: 36px;
+      background: var(--fundo);
+      border-radius: 12px;
+      transition: transform 0.3s;
+    }
+    .servico-card:hover { transform: translateY(-4px); }
+    .servico-num {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 32px;
+      color: var(--terra);
+      opacity: 0.4;
+      margin-bottom: 16px;
+    }
+    .servico-nome {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 18px;
+      color: var(--azul);
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .servico-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--texto-leve);
+      font-weight: 300;
+    }
+
+    /* ========== DIFERENCIAIS ========== */
+    .diff-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 50px;
+    }
+    .diff-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .diff-line {
+      width: 2px;
+      min-height: 50px;
+      background: var(--terra);
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+    .diff-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--azul);
+      margin-bottom: 6px;
+    }
+    .diff-text {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--texto-leve);
+      font-weight: 300;
+    }
+
+    /* ========== CTA / CONTATO ========== */
+    .contato-bg {
+      background: var(--azul);
+      color: #fff;
+    }
+    .contato-bg .section-label { color: var(--terra); }
+    .contato-bg .section-title { color: var(--off-white); }
+    .contato-bg .section-text { color: rgba(255,255,255,0.6); }
+
+    .contato-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-top: 50px;
+    }
+
+    .contato-info {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .contato-item-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 6px;
+    }
+    .contato-item-value {
+      font-size: 16px;
+      color: rgba(255,255,255,0.8);
+      font-weight: 300;
+    }
+    .contato-item-value a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .contato-item-value a:hover { color: var(--terra); }
+
+    .contato-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .contato-form input,
+    .contato-form textarea {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .contato-form input::placeholder,
+    .contato-form textarea::placeholder {
+      color: rgba(255,255,255,0.3);
+    }
+    .contato-form input:focus,
+    .contato-form textarea:focus {
+      border-color: var(--terra);
+    }
+    .contato-form textarea { resize: vertical; min-height: 100px; }
+    .contato-form button {
+      background: var(--terra);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 14px 36px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.3s;
+      align-self: flex-start;
+    }
+    .contato-form button:hover { opacity: 0.85; }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: var(--chumbo);
+      padding: 40px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 18px;
+      color: var(--off-white);
+      letter-spacing: 4px;
+      margin-bottom: 6px;
+    }
+    .footer-line {
+      width: 40px;
+      height: 1px;
+      background: var(--terra);
+      margin: 12px auto;
+    }
+    .footer-copy {
+      font-size: 11px;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 2px;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      .hero-logo { font-size: 50px; letter-spacing: 10px; }
+      .hero-slogan { font-size: 22px; }
+      .servicos-grid { grid-template-columns: 1fr; }
+      .diff-grid { grid-template-columns: 1fr; }
+      .contato-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">MAE</a>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Servicos</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-logo">MODERNA</div>
+    <div class="hero-line"></div>
+    <div class="hero-desc">Arquitetura e Engenharia</div>
+    <div class="hero-slogan">
+      Pequenos espacos,<br><em>grandes transformacoes.</em>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre" id="sobre">
+    <div class="section-label">Sobre</div>
+    <div class="section-title">Especialistas em compactos</div>
+    <div class="section-line"></div>
+    <p class="section-text">
+      A Moderna AE e especializada em reformas de apartamentos compactos e studios.
+      Acreditamos que cada metro quadrado conta — e que morar bem nao depende
+      de morar grande. Nosso trabalho une arquitetura inteligente e engenharia
+      precisa para extrair o maximo de cada ambiente.
+    </p>
+  </section>
+
+  <!-- SERVICOS -->
+  <div class="servicos-bg">
+    <section id="servicos">
+      <div class="section-label">Servicos</div>
+      <div class="section-title">O que fazemos</div>
+      <div class="section-line"></div>
+
+      <div class="servicos-grid">
+        <div class="servico-card">
+          <div class="servico-num">01</div>
+          <div class="servico-nome">Reforma completa</div>
+          <div class="servico-desc">
+            Transformacao integral do apartamento — do projeto a entrega das chaves.
+          </div>
+        </div>
+        <div class="servico-card">
+          <div class="servico-num">02</div>
+          <div class="servico-nome">Projeto de interiores</div>
+          <div class="servico-desc">
+            Layout otimizado, marcenaria planejada e solucoes que ampliam visualmente o espaco.
+          </div>
+        </div>
+        <div class="servico-card">
+          <div class="servico-num">03</div>
+          <div class="servico-nome">Consultoria tecnica</div>
+          <div class="servico-desc">
+            Avaliacao do imovel antes da compra, viabilidade de reforma e estimativa de custos.
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- DIFERENCIAIS -->
+  <section id="diferenciais">
+    <div class="section-label">Diferenciais</div>
+    <div class="section-title">Por que a Moderna</div>
+    <div class="section-line"></div>
+
+    <div class="diff-grid">
+      <div class="diff-item">
+        <div class="diff-line"></div>
+        <div>
+          <div class="diff-title">Foco em compactos</div>
+          <div class="diff-text">Nao fazemos tudo — fazemos muito bem o que sabemos. Apartamentos de ate 60m2 sao nossa especialidade.</div>
+        </div>
+      </div>
+      <div class="diff-item">
+        <div class="diff-line"></div>
+        <div>
+          <div class="diff-title">Projeto + obra integrados</div>
+          <div class="diff-text">Arquitetura e engenharia na mesma equipe. Sem ruido entre quem projeta e quem executa.</div>
+        </div>
+      </div>
+      <div class="diff-item">
+        <div class="diff-line"></div>
+        <div>
+          <div class="diff-title">Cronograma real</div>
+          <div class="diff-text">Prazos honestos, acompanhamento semanal e atualizacoes transparentes do inicio ao fim.</div>
+        </div>
+      </div>
+      <div class="diff-item">
+        <div class="diff-line"></div>
+        <div>
+          <div class="diff-title">Custo previsivel</div>
+          <div class="diff-text">Orcamento detalhado antes de comecar. Sem surpresas no meio do caminho.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <div class="contato-bg">
+    <section id="contato">
+      <div class="section-label">Contato</div>
+      <div class="section-title">Vamos conversar</div>
+      <div class="section-line"></div>
+      <p class="section-text">
+        Tem um apartamento compacto e quer transformar? Entre em contato.
+      </p>
+
+      <div class="contato-grid">
+        <div class="contato-info">
+          <div>
+            <div class="contato-item-label">Email</div>
+            <div class="contato-item-value"><a href="mailto:contato@modernaae.com.br">contato@modernaae.com.br</a></div>
+          </div>
+          <div>
+            <div class="contato-item-label">Telefone</div>
+            <div class="contato-item-value"><a href="tel:+5511999999999">(11) 99999-9999</a></div>
+          </div>
+          <div>
+            <div class="contato-item-label">Instagram</div>
+            <div class="contato-item-value"><a href="#">@mae.arquitetura</a></div>
+          </div>
+          <div>
+            <div class="contato-item-label">Atendimento</div>
+            <div class="contato-item-value">Fortaleza — CE</div>
+          </div>
+        </div>
+
+        <form class="contato-form" onsubmit="return false;">
+          <input type="text" placeholder="Nome">
+          <input type="email" placeholder="Email">
+          <input type="tel" placeholder="Telefone">
+          <textarea placeholder="Conte sobre seu projeto"></textarea>
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">MAE</div>
+    <div class="footer-line"></div>
+    <div class="footer-copy">MODERNA ARQUITETURA E ENGENHARIA &copy; 2026</div>
+  </footer>
+
+</body>
+</html>
