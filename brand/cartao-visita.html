@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Cartao de Visita — MAE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #888; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 40px; gap: 40px; }
+    h2 { font-family: 'Raleway', sans-serif; font-weight: 300; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #555; margin-bottom: 12px; }
+    .info { font-size: 11px; color: #999; margin-top: 8px; text-align: center; font-family: 'Raleway', sans-serif; }
+
+    /* Cartao 9x5cm = proporção 1.8:1 */
+    .card {
+      width: 540px;
+      height: 300px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    /* ===== FRENTE ===== */
+    .card-front {
+      background: #0a1525;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-front-logo {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 48px;
+      color: #e8e6e3;
+      letter-spacing: 10px;
+    }
+    .card-front-line {
+      width: 100px;
+      height: 1.5px;
+      background: #a9754d;
+      margin: 14px 0;
+    }
+    .card-front-desc {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      font-size: 8px;
+      color: #d9d9d9;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0.55;
+    }
+    /* Corner decorativo */
+    .corner-br {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      border-right: 1px solid #a9754d;
+      border-bottom: 1px solid #a9754d;
+      opacity: 0.2;
+    }
+
+    /* ===== VERSO ===== */
+    .card-back {
+      background: #e8e6e3;
+      padding: 36px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card-back-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .card-back-name {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 18px;
+      color: #0a1525;
+      letter-spacing: 1px;
+    }
+    .card-back-cargo {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      font-size: 11px;
+      color: #a9754d;
+      letter-spacing: 2px;
+      margin-top: 4px;
+    }
+    .card-back-logo-small {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 14px;
+      color: #0a1525;
+      letter-spacing: 3px;
+      opacity: 0.3;
+    }
+    .card-back-divider {
+      width: 30px;
+      height: 1.5px;
+      background: #a9754d;
+      margin: 0;
+    }
+    .card-back-contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .card-back-contact {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      font-size: 11px;
+      color: #0a1525;
+      opacity: 0.7;
+    }
+    .card-back-contact span {
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #a9754d;
+      opacity: 0.8;
+      margin-right: 8px;
+    }
+
+    .pair { text-align: center; }
+  </style>
+</head>
+<body>
+
+  <!-- FRENTE -->
+  <div class="pair">
+    <h2>Frente</h2>
+    <div class="card card-front">
+      <div class="card-front-logo">MAE</div>
+      <div class="card-front-line"></div>
+      <div class="card-front-desc">Moderna Arquitetura e Engenharia</div>
+      <div class="corner-br"></div>
+    </div>
+    <div class="info">9x5cm — Fundo azul real</div>
+  </div>
+
+  <!-- VERSO -->
+  <div class="pair">
+    <h2>Verso</h2>
+    <div class="card card-back">
+      <div class="card-back-top">
+        <div>
+          <div class="card-back-name">Nome Completo</div>
+          <div class="card-back-cargo">Arquiteta</div>
+        </div>
+        <div class="card-back-logo-small">MAE</div>
+      </div>
+      <div class="card-back-divider"></div>
+      <div class="card-back-contacts">
+        <div class="card-back-contact"><span>Tel</span> (85) 99999-9999</div>
+        <div class="card-back-contact"><span>Email</span> contato@modernaae.com.br</div>
+        <div class="card-back-contact"><span>Insta</span> @modernaae</div>
+        <div class="card-back-contact"><span>Local</span> Fortaleza — CE</div>
+      </div>
+    </div>
+    <div class="info">9x5cm — Fundo off white</div>
+  </div>
+
+</body>
+</html>
